@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询列表</title>
+</head>
+<body>
+<button>查询</button>
+<table id="usertable" border="1">
+    <tr>
+        <td>id</td>
+        <td>姓名</td>
+        <td>密码</td>
+        <td>性别</td>
+        <td>学历</td>
+    </tr>
+</table>
+</body>
+<script src="jquery/jquery-3.5.1.js"> </script>
+<script>
+    $(function () {
+        $("button").click(function () {
+            $.ajax({
+                url: "/login",
+                type: "get",
+                success: function (response) {
+                    var josn=JSON.parse(response)
+                    if(josn.code===200){
+                        console.log(josn)
+                      var josnArray=josn.userList
+                        alert("查询成功" + response)
+                        $("#usertable").empty()
+                        $("#usertable").append("<tr>\n" +
+                            "        <td>id</td>\n" +
+                            "        <td>姓名</td>\n" +
+                            "        <td>密码</td>\n" +
+                            "        <td>性别</td>\n" +
+                            "        <td>学历</td>\n" +
+                            "    </tr>")
+                        for(var i=0;i<josnArray.length;i++){
+                            console.log(josnArray[i])
+                            console.log(josnArray[i].id+" " +josnArray[i].username+" "+josnArray[i].password+" "+josnArray[i].sex+" "+josnArray[i].xueli)
+              $("#usertable").append("<tr>\n" +
+                  "        <td>"+josnArray[i].id+"</td>\n" +
+                  "        <td>"+josnArray[i].username+"</td>\n" +
+                  "        <td>"+josnArray[i].password+"</td>\n" +
+                  "        <td>"+josnArray[i].sex+"</td>\n" +
+                  "        <td>"+josnArray[i].xueli+"</td>\n" +
+                  "    </tr>")
+
+                        }
+
+                }
+                else{
+                        alert("查询失败" + response);
+                    }
+                },
+                error: function (response) {
+                    alert("出错" + response);
+                }
+            });
+
+        })
+
+    });
+
+</script>
+</html>
