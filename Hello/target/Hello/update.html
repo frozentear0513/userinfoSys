@@ -11,48 +11,47 @@ id:<input type="text" id="id"/><br/>
 <button id="update">修改</button>
 <script src="jquery/jquery-3.5.1.js"></script>
 <script>
-  $(function () {
-      $("#update").click(function () {
-          var id=$("#id").val();
-          var id=$("#username").val();
-          var id=$("#password").val();
-          $.ajax({
-              url:"/update",           // 请求路径
-              type:"Post",            // 请求的方式，不区分大小写
-              async:true,             // 是否异步，true是默认值，false为同步请求
-              cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
-              datatype:"json",        // 返回类型，text文本、html页面、json数据
-              data:{
-                  id:id,
-                  username:username,
-                  password:password
-              },
-              success:function(response){
-                  var json=JSON.parse(response)
-                  console.log(response)
-                  if(json.code===200){
-                      alert("修改成功");
+    function getUrlParam(key) {   // 获取浏览器地址上的key和value   通过传递一个key，得到一个value值
+        var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)","i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return (decodeURI(r[2])); return null;
+    }
 
+    $(function () {
+        // alert(getUrlParam("id"));
+        // alert(getUrlParam("username"));
+        // alert(getUrlParam("password"));
+        $("#id").val(getUrlParam("id"));
+        $("#username").val(getUrlParam("username"));
+        $("#password").val(getUrlParam("password"));
 
-                  }
-                  else {
-                      alert("修改失败");
-                  }
-
-              },
-              error:function(response){
-                  alert("出错" + response);
-              }
-          });
-      })
-
-      })
-
-
-  });
-
-
-
+        $("#update").click(function () {
+            $.ajax({
+                url:"/update",           // 请求路径
+                type:"Post",            // 请求的方式，不区分大小写
+                async:true,             // 是否异步，true是默认值，false为同步请求
+                cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
+                // 返回类型，text文本、html页面、json数据
+                data:{
+                    id: $("#id").val(),
+                    username:$("#username").val(),
+                    password:$("#password").val()},
+                success:function(response){
+                    var json=JSON.parse(response)
+                    console.log(response)
+                    if(json.code===200){
+                        alert("修改成功");
+                    }
+                    else {
+                        alert("修改失败");
+                    }
+                },
+                error:function(response){
+                    alert("出错" + response);
+                }
+            });
+        })
+    })
 </script>
 
 </body>

@@ -19,7 +19,7 @@ public class updateServlet extends HttpServlet {
         String password = req.getParameter("password");
         String id = req.getParameter("id");
          Service updateservice = new Service();
-        JSONObject jsonObject=updateservice.update(username,password,id);
+        JSONObject jsonObject=updateservice.update(id,username,password);
         resp.setContentType("text/html;charset=utf-8");
         resp.getWriter().println(jsonObject);
     }

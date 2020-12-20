@@ -72,7 +72,7 @@ public class Service {
     public JSONObject update(String id, String username, String password) {
 
            JDBC jdbc=new JDBC();
-          JSONObject jsonObject=  jdbc.update(username,password,id);
+          JSONObject jsonObject=  jdbc.update(id,username,password);
 
         return jsonObject;
     }

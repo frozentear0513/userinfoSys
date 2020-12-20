@@ -16,8 +16,9 @@ $(function () {
                         "        <td>" + array[i].id + "</td>\n" +
                         "        <td>" + array[i].username + "</td>\n" +
                         "        <td>" + array[i].password + "</td>\n" +
-                        // "        <td><a onclick='deleteUser("+array[i].id+")'>删除<a/></td>\n" +
-                       "        <td><a href='/shanchu?id="+array[i].id+"'>删除<a/></td>\n" +
+                       "        <td><a onclick='deleteUser("+array[i].id+")'>删除<a/></td>\n" +
+                        //   "        <td><a href='/shanchu?id="+array[i].id+"'>删除<a/></td>\n" +
+                        "            <td><a href='/update.html?id=" + jsonArray[i].id + "&username=" + jsonArray[i].username + "&password=" + jsonArray[i].password + "'>更新</a></td>\n" +
                         "    </tr><br/>")
                 }
             }
@@ -58,8 +59,9 @@ $(function () {
                             "        <td>" + array[i].id + "</td>\n" +
                             "        <td>" + array[i].username + "</td>\n" +
                             "        <td>" + array[i].password + "</td>\n" +
-                          // "        <td><a onclick='deleteUser("+array[i].id+")'>删除<a/></td>\n" +
-                           "        <td><a href='/shanchu?id="+array[i].id+"'>删除<a/></td>\n" +
+                          "        <td><a onclick='deleteUser("+array[i].id+")'>删除<a/></td>\n" +
+                            //  "        <td><a href='/shanchu?id="+array[i].id+"'>删除<a/></td>\n" +
+                            "            <td><a href='/updateUser.html?id=" + jsonArray[i].id + "&username=" + jsonArray[i].username + "&password=" + jsonArray[i].password + "'>更新</a></td>\n" +
 
                             "    </tr><br/>")
                     }
@@ -73,25 +75,25 @@ $(function () {
 
 });
 
-// function deleteUser(id) {
-//     $.ajax({
-//         url: "/shanchu",   // 请求路径
-//         type: "Post",            // 请求的方式，不区分大小写
-//         // async:true,             // 是否异步，true是默认值，false为同步请求
-//         // cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
-//         // datatype:"html",        // 返回类型，text文本、html页面、json数据
-//         data: {
-//             id: id
-//         },
-//         success: function (response) {
-//             var json = JSON.parse(response);
-//             if (json.code === 200) {
-//                 alert("删除成功");
-//                 window.location.reload();//刷新
-//             }
-//         },
-//         error: function (response) {
-//             alert("出错" + response);
-//         }
-//     });
-// };
+function deleteUser(id) {
+    $.ajax({
+        url: "/shanchu",   // 请求路径
+        type: "Post",            // 请求的方式，不区分大小写
+        // async:true,             // 是否异步，true是默认值，false为同步请求
+        // cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
+        // datatype:"html",        // 返回类型，text文本、html页面、json数据
+        data: {
+            id: id
+        },
+        success: function (response) {
+            var json = JSON.parse(response);
+            if (json.code === 200) {
+                alert("删除成功");
+                window.location.reload();//刷新
+            }
+        },
+        error: function (response) {
+            alert("出错" + response);
+        }
+    });
+};

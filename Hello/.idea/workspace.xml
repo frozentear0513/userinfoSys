@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56f71b18-1935-4652-9044-8141d44961a6" name="Default Changelist" comment="" />
+    <list default="true" id="56f71b18-1935-4652-9044-8141d44961a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.annotation.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.transaction.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hello.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hello.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Day2020_12_12/Service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Day2020_12_12/Service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Day2020_12_12/Servlet/updateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Day2020_12_12/Servlet/updateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Hello/js/chaxun.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Hello/js/chaxun.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Hello/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Hello/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../学习/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../学习/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +39,7 @@
     <option name="jreName" value="1.8" />
     <option name="vmOptions" value="-DarchetypeCatalog=local" />
   </component>
+  <component name="ProjectId" id="1lfdo6NFTAws0qJXS2Rihgk5yrY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +47,78 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_Hello" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50861" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -41,6 +131,11 @@
       <option name="presentableId" value="Default" />
       <updated>1607957370826</updated>
       <workItem from="1607957373568" duration="96000" />
+      <workItem from="1607992253297" duration="1822000" />
+      <workItem from="1607995629022" duration="209000" />
+      <workItem from="1608016158477" duration="103000" />
+      <workItem from="1608016939367" duration="151000" />
+      <workItem from="1608124094054" duration="51000" />
     </task>
     <servers />
   </component>
@@ -48,17 +143,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="74" key="#Project_Structure" timestamp="1607995827877">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="74" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1607995827877" />
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607995828579">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1607995828579" />
     <state x="425" y="119" key="#com.intellij.featureStatistics.actions.ShowFeatureUsageStatisticsDialog" timestamp="1607957381676">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="119" key="#com.intellij.featureStatistics.actions.ShowFeatureUsageStatisticsDialog/0.0.1536.824@0.0.1536.824" timestamp="1607957381676" />
-    <state x="549" y="114" key="FileChooserDialogImpl" timestamp="1607957403253">
+    <state x="549" y="114" key="FileChooserDialogImpl" timestamp="1608017087130">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="114" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607957403253" />
-    <state x="408" y="116" key="NewModule_or_Project.wizard" timestamp="1607957415393">
+    <state x="549" y="114" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608017087130" />
+    <state x="408" y="116" key="NewModule_or_Project.wizard" timestamp="1608017057374">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="408" y="116" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1607957415393" />
+    <state x="408" y="116" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1608017057374" />
+    <state x="461" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1608016941037">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="461" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1608016941037" />
+    <state x="246" y="175" key="new project wizard" timestamp="1608016189612">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="246" y="175" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1608016189612" />
   </component>
 </project>
