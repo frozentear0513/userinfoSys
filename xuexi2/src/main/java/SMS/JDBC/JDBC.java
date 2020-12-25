@@ -1,11 +1,8 @@
 package SMS.JDBC;
 
-import org.json.JSONObject;
 import zuoye.util.MyConnection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class JDBC {
     public int insert(String tel, int mobile_code, Long times) {
@@ -77,6 +74,40 @@ public class JDBC {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, tel);
             int resultSet = preparedStatement.executeUpdate();
+            return resultSet;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public int jilu(String uuid, String username) {
+
+        try {
+            Connection connection = MyConnection.getConnection();
+            String sql = "update cs set uuid=? where username=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, uuid);
+            preparedStatement.setString(2, username);
+            int resultSet = preparedStatement.executeUpdate();
+
+            return resultSet;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public int xiugai(String password, String uuid) {
+
+        try {
+            Connection connection = MyConnection.getConnection();
+            String sql = "update cs set password=? where uuid=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, uuid);
+            int resultSet = preparedStatement.executeUpdate();
+
             return resultSet;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

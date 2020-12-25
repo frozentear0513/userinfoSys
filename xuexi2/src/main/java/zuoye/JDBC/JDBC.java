@@ -242,53 +242,23 @@ public class JDBC {
 //
 //    }
 
-//    public JSONArray pageList(int index, String username, String bmid, String zckssj, String zcjssj, String qxid) {
-//        JSONArray array = new JSONArray();
-//
-//        try {
-//            Connection connection = MyConnection.getConnection();
-//            String sql = "select user.id,user.qxid,bmid,username,password,sex,age,zhuceshijian,denglushijian,` bmmc` as bmmc,qx.qxmc from user,bm,qx where bmid=bm.id and qxid=qx.id";
-//            if (username != null && !"".equals(username)) {
-//                sql = sql + " and username like' %" + username + "%'";
-//            }
-//            if (bmid != null && !"".equals(bmid)) {
-//                sql = sql + " and bmid= " + bmid;
-//            }
-//            if (bmid != null && !"".equals(bmid)) {
-//                sql = sql + " and qxid= " + qxid;
-//            }
-//            if (zckssj != null && !"".equals(zckssj) && zcjssj != null && !"".equals(zcjssj)) {
-//                sql = sql + " and zhuceshijian between '" + zckssj + "' and '" + zcjssj + "'";
-//            }
-//            sql = sql + " order by user.id limit ?,10";
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setInt(1, index);
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            JSONObject jsonObject1 = null;
-//            while (resultSet.next()) {
-//                jsonObject1 = new JSONObject();
-//                jsonObject1.put("id", resultSet.getString("id"));
-//                jsonObject1.put("username", resultSet.getString("username"));
-//                jsonObject1.put("password", resultSet.getString("password"));
-//                jsonObject1.put("sex", resultSet.getString("sex"));
-//                jsonObject1.put("age", resultSet.getString("age"));
-//                jsonObject1.put("zhuceshijian", resultSet.getString("zhuceshijian"));
-//                jsonObject1.put("denglushijian", resultSet.getString("denglushijian"));
-//                jsonObject1.put("bmmc", resultSet.getString("bmmc"));
-//                jsonObject1.put("qxmc", resultSet.getString("qx.qxmc"));
-//                jsonObject1.put("bmid", resultSet.getString("bmid"));
-//                jsonObject1.put("qxid", resultSet.getString("user.qxid"));
-//                array.put(jsonObject1);
-//            }
-//        } catch (SQLException | ClassNotFoundException ex) {
-//            ex.printStackTrace();
-//        }
-//
-//        return array;
-//    }
-//
+    public ResultSet excelList() {
+        ResultSet resultSet=null;
+        try {
+            Connection connection = MyConnection.getConnection();
+            String sql = "select user.id,user.qxid,bmid,username,password,sex,age,zhuceshijian,denglushijian,` bmmc` as bmmc,qx.qxmc from user,bm,qx where bmid=bm.id and qxid=qx.id order by user.id";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            return resultSet;
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
 
+        return resultSet;
+    }
 }
+
+
 
 
 

@@ -1,4 +1,4 @@
-package SMS.Servlet;
+package SMS.util;
 
 import com.sun.mail.util.MailSSLSocketFactory;
 
@@ -18,7 +18,7 @@ import java.util.UUID;
      *               这里以QQ邮箱账户为发送方，首先需要进入QQ邮箱，找到左上方的设置，然后选择账户，找到POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务，开启pop3，获得授权码
      * Version: V1.0
      */
-    public class MyJavaMail  implements Runnable {
+    public class MyJavaMail {
 
         private String username;          // 登录的用户名
         private String email;             // 收件人邮箱
@@ -28,10 +28,10 @@ import java.util.UUID;
             this.username = username;
             this.email = email;
             // java系统默认生成的uuid，但是默认的uuid是有横杠隔开的，项目中需要手动去掉横杠
-            this.uuid = UUID.randomUUID().toString().replaceAll("-","");  // 生成唯一随机码;
+            this.uuid = UUID.randomUUID().toString().replaceAll("-", "");  // 生成唯一随机码;
         }
 
-        @Override
+
         public void run() {
             String host = "smtp.qq.com";                        // 指定发送邮件的主机smtp.qq.com(QQ)|smtp.163.com(网易)  这里需要继续扩展做判断分支处理
 
@@ -68,8 +68,8 @@ import java.util.UUID;
 
                 // 6.设置邮件内容
                 String content = "<html><head></head><body><h1>这是一封激活邮件,激活请点击以下链接，如果不是本人操作，请勿点击</h1><h3>" +
-                        "<a href='http://localhost:8080/register/checkRegisterServlet?code=" + uuid + "'>" +
-                        "http://localhost:8080/register/checkRegisterServlet?code=" + uuid
+                        "<a href='http://localhost:8080/xiugaixinxi?code=" + uuid + "'>" +
+                        "http://localhost:8080/xiugaixinxi?code=" + uuid
                         + "</a></h3></body></html>";
                 message.setContent(content, "text/html;charset=UTF-8");
 
@@ -79,33 +79,36 @@ import java.util.UUID;
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }
+    }
 
         /**
          * 提供为外部调用的邮件方法  应该把此方法提出来放置到service服务中
-         * @return  返回状态true为成功，false为失败
+         *
+         * @return 返回状态true为成功，false为失败
          */
-        public boolean checkRegister() {
-            // 没有判断邮箱和用户名是否为空，需要额外增加代码处理
-            if(!email.matches("^\\w+@(\\w+\\.)+\\w+$")){          // 利用正则表达式（可改进）验证邮箱是否符合邮箱的格式
-                return false;
-            }
-
-//        User user = new User(username, password, email, uuid);        // 写入用户POJO
-//        UserDao userDao = new UserDaoImpl();                          // 将用户保存到数据库
-//        if(userDao.save(user) > 0){                                   // 保存成功则通过线程的方式给用户发送一封邮件
-            new Thread(new MyJavaMail(username,email)).start();       // 启动一个子线程发送邮件，第一个参数为接收账号，第二参数为随机码
-//            return true;
-//        }
-            return false;
-        }
+//        public boolean checkRegister() {
+//            // 没有判断邮箱和用户名是否为空，需要额外增加代码处理
+//            if (!email.matches("^\\w+@(\\w+\\.)+\\w+$")) {          // 利用正则表达式（可改进）验证邮箱是否符合邮箱的格式
+//                return false;
+//            }
 //
-       public static void main(String[] args) {
-//            // pop3协议如果权限认证失败，会报535错误
-//            // 启动一个子线程发送邮件，第一个参数为发送方用户账户，第二参数为被接收的邮件地址
-          new Thread(new MyJavaMail("1358742349@qq.com","2316200262@qq.com")).start();
-       System.out.println(UUID.randomUUID().toString().replace("-",""));
-      }
-    }
-
+//            User user = new User(username, password, email, uuid);        // 写入用户POJO
+//            UserDao userDao = new UserDaoImpl();                          // 将用户保存到数据库
+//            if (userDao.save(user) > 0) {                                   // 保存成功则通过线程的方式给用户发送一封邮件
+//                new Thread(new MyJavaMail(username, email)).start();       // 启动一个子线程发送邮件，第一个参数为接收账号，第二参数为随机码
+//                return true;
+//            }
+//            return false;
+//
+//
+//            public static void main (String[]args){
+//                // pop3协议如果权限认证失败，会报535错误
+//                // 启动一个子线程发送邮件，第一个参数为发送方用户账户，第二参数为被接收的邮件地址
+//                new Thread(new MyJavaMail("1358742349@qq.com", "1358742349@qq.com")).start();
+//                System.out.println(UUID.randomUUID().toString().replace("-", ""));
+//            }
+//        }
+//    }
 
