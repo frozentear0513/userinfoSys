@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="jquery/jquery-3.5.1.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="const/CommonConst.js"></script>
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item"><a href="">控制台</a></li>
+        <li class="layui-nav-item"><a href="">商品管理</a></li>
+        <li class="layui-nav-item"><a href="">用户</a></li>
+        <li class="layui-nav-item">
+            <a href="javascript:">其它系统</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">邮件管理</a></dd>
+                <dd><a href="">消息管理</a></dd>
+                <dd><a href="">授权管理</a></dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+            <a href="javascript:">
+                <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                刘俊先
+            </a>
+            <dl class="layui-nav-child">
+                <dd><a href="">基本资料</a></dd>
+                <dd><a href="">安全设置</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">跪安</a></li>
+    </ul>
+</div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:">列表一</a></dd>
+                        <dd><a href="javascript:">列表二</a></dd>
+                        <dd><a href="javascript:">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:">列表一</a></dd>
+                        <dd><a href="javascript:">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body" style="margin-top: 10px; margin-left: 20px; margin-right: 20px">
+
+        <span class="layui-breadcrumb">
+            <a href="lianxi.html">首页</a>
+            <a href="">国际新闻</a>
+            <a href="">亚太地区</a>
+            <a><cite>正文</cite></a>
+        </span>
+        <!-- 水平线 -->
+        <hr class="layui-bg-red">
+        <!-- 搜索条件 -->
+        <fieldset class="layui-elem-field">
+            <legend>筛选条件</legend>
+            <div class="layui-field-box">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item layui-form-pane">   <!--  每一个这样的div代表一个面板状态 每一个面板会自动换行 -->
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="search_username" placeholder="模糊查询用户名" class="layui-input">
+                        </div>
+
+                        <label class="layui-form-label">部门</label>
+                        <div class="layui-input-inline">
+                            <select name="quiz1" id="search_bmmc">
+
+                            </select>
+                        </div>
+
+                        <label class="layui-form-label">注册时间</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input" id="search_zhuceshijian"
+                                   placeholder="yyyy-MM-dd HH:mm:ss">
+                        </div>
+                    </div>
+                </form>
+                <div class="layui-form-item layui-form-pane">   <!--  每一个这样的div代表一个面板状态 每一个面板会自动换行 -->
+                    <form class="layui-form layui-form-pane" action="">
+                        <label class="layui-form-label">权限</label>
+                        <div class="layui-input-inline">
+                            <select name="quiz1" id="search_qxmc">
+                            </select>
+                        </div>
+                    </form>
+                    <div class="layui-inline">
+                        <button class="layui-btn layui-btn-radius layui-btn-warm" id="iReset">重置</button>
+                        <button class="layui-btn layui-btn-radius layui-btn-normal" id="searchVal">搜索</button>
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+
+
+        <table class="layui-hide" id="test" lay-filter="test"></table>
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+                <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+                <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+                <button class="layui-btn layui-btn-sm" lay-event="insert_data">新增用户</button>
+            </div>
+        </script>
+
+        <script type="text/html" id="insert_form">
+            <div class="layui-field-box">
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="insert_username" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="insert_password" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">性别</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="insert_sex" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">年龄</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="insert_age" class="layui-input">
+                    </div>
+                </div>
+
+                <form class="layui-form layui-form-pane" action="">
+                    <label class="layui-form-label">部门</label>
+                    <div class="layui-input-inline">
+                        <select name="quiz1" id="insert_bmmc">
+                        </select>
+                    </div>
+                    <label class="layui-form-label">权限</label>
+                    <div class="layui-input-inline">
+                        <select name="quiz1" id="insert_qxmc">
+                        </select>
+                    </div>
+                </form>
+
+
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">注册时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="insert_zhuceshijian"
+                               placeholder="yyyy-MM-dd HH:mm:ss">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">登录时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="insert_denglushijian" class="layui-input"
+                               placeholder="yyyy-MM-dd HH:mm:ss">
+                    </div>
+                </div>
+
+            </div>
+        </script>
+
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        </script>
+
+
+        <script>
+            var bmArray;
+            var qxArray;
+            $(function () {
+                //数据查询
+                initBmData();
+                initQxData();
+                 search();
+                initUserInfo();
+                //事件绑定
+                blindEvent();
+            });
+
+            function initBmData() {
+                $.ajax({
+                    url: "/bmlist",   // 请求路径
+                    type: "get",            // 请求的方式，不区分大小写
+                    success: function (response) {
+                        var json = JSON.parse(response);
+                        if (json.code === 200) {
+                            bmArray = json.data
+                            $("#search_bmmc").append("<option value=''>请选择部门</option>");
+                            for (var i = 0; i < bmArray.length; i++) {
+                                $("#search_bmmc").append("<option value='" + bmArray[i].id + "'>" + bmArray[i].bmmc + "</option>");
+                            }
+                            layui.use(['form'], function () {
+                                var form = layui.form;
+                                form.render('select');
+                            });
+                        }
+                    },
+                    error: function (response) {
+                        alert("出错" + response);
+                        layer.close(index);//关闭弹窗confirm
+                    }
+                });
+            }
+
+            function initQxData() {
+                $.ajax({
+                    url: "/qxlist",   // 请求路径
+                    type: "get",            // 请求的方式，不区分大小写
+                    success: function (response) {
+                        var json = JSON.parse(response);
+                        if (json.code === 200) {
+                            qxArray = json.data
+                            $("#search_qxmc").append("<option value=''>请选择权限</option>");
+                            for (var i = 0; i < qxArray.length; i++) {
+                                $("#search_qxmc").append("<option value='" + qxArray[i].id + "'>" + qxArray[i].qxmc + "</option>");
+                            }
+                            layui.use(['form'], function () {
+                                var form = layui.form;
+                                form.render('select');
+                            });
+                        }
+                    },
+                    error: function (response) {
+                        alert("出错" + response);
+                        layer.close(index);//关闭弹窗confirm
+                    }
+                });
+            }
+
+            function search(search_username, search_bmmc, search_zhuceshijian, search_qxmc) {
+                layui.use('table', function () {
+                    var table = layui.table;
+                    var json = {};
+                    json.search_username = search_username;
+                    json.search_bmmc = search_bmmc;
+                    if (search_zhuceshijian != null && search_zhuceshijian !== "") {
+                        var timeArray = search_zhuceshijian.split(" - ");
+                        json.search_start_zhuceshijian = timeArray[0];
+                        json.search_end_zhuceshijian = timeArray[1];
+                    }
+                    json.search_qxmc = search_qxmc;
+                    table.render({
+                        elem: '#test'
+                        , url: '/pagelist'
+                        , where: json
+                        , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+                        , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                            title: '提示'
+                            , layEvent: 'LAYTABLE_TIPS'
+                            , icon: 'layui-icon-tips'
+                        }]
+                        , title: '用户数据表'
+                        , cols: [[
+                            {type: 'checkbox', fixed: 'left'}
+                            , {field: 'id', title: 'ID', width: 50, fixed: 'left', unresize: true}
+                            , {field: 'username', title: '用户名', width: 120}
+                            , {field: 'password', title: '密码', width: 120,}
+                            , {field: 'sex', title: '性别', width: 80,}
+                            , {field: 'age', title: '年龄', width: 80}
+                            , {field: 'bmmc', title: '部门', width: 80}
+                            , {field: 'qxmc', title: '权限', width: 100,}
+                            , {field: 'zhuceshijian', title: '注册时间', width: 230}
+                            , {field: 'denglushijian', title: '登录时间', width: 230}
+                            , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
+                        ]]
+                        , page: true
+                    });
+                })
+            }
+
+            function blindEvent() {
+                resetClickEvent();
+                searchClickEvent();
+                dateEvent();
+                tabelEvent();
+            }
+
+            function resetClickEvent() {
+                $("#iReset").click(function () {
+                    $("#search_username").val("")
+                    $("#search_bmmc").val("0")
+                    $("#search_zhuceshijian").val("")
+                    $("#search_qxmc").val("0")
+
+                    layui.use(['form'], function () {
+                        var form = layui.form;
+                        form.render('select');
+                    });
+                })
+            }
+
+            function searchClickEvent() {
+                $("#searchVal").click(function () {
+                    var search_username = $("#search_username").val()
+                    var search_bmmc = $("#search_bmmc").val()
+                    var search_zhuceshijian = $("#search_zhuceshijian").val()
+                    var search_qxmc = $("#search_qxmc").val()
+
+                    search(search_username, search_bmmc, search_zhuceshijian, search_qxmc);
+                })
+            }
+
+            function dateEvent(){
+                blindDateEventById("search_zhuceshijian", true)
+            }
+
+            function blindDateEventById(elemntid, range) {
+                layui.use('laydate', function () {
+                    var laydate = layui.laydate;
+                    //日期时间选择器
+                    laydate.render({
+                        elem: '#'+search_zhuceshijian
+                        , type: 'datetime'
+                        , range: range
+                    });
+                });
+            }
+
+            function tabelEvent() {
+            //头工具栏事件
+                table.on('toolbar(test)', function (obj) {
+                    var checkStatus = table.checkStatus(obj.config.id);
+                    switch (obj.event) {
+                        case 'getCheckData':
+                            var data = checkStatus.data;
+                            layer.alert(JSON.stringify(data));
+                            break;
+                        case 'getCheckLength':
+                            var data = checkStatus.data;
+                            layer.msg('选中了：' + data.length + ' 个');
+                            break;
+                        case 'isAll':
+                            layer.msg(checkStatus.isAll ? '全选' : '未全选');
+                            break;
+                        case 'insert_data':
+                            layer.open({
+                                type: 1
+                                , title: '新增用户'         //不显示标题栏
+                                , closeBtn: false
+                                , area: [PAGE_INSERT_WIDTH, PAGE_INSERT_HEIGHT]  // 宽和高
+                                , shade: 0.8               // 透明度
+                                , id: 'LAY_layuipro'       //设定一个id，防止重复弹出
+                                , btn: ['新增', '取消']    // 两个按钮显示的文字内容
+                                , btnAlign: 'c'
+                                , moveType: 1             //拖拽模式，0或者1
+                                , content: $('#insert_form').html()// 引入自定义表单
+                                , btn1: function (index, layero) {
+                                    var username = $("#insert_username").val();
+                                    var password = $("#insert_password").val();
+                                    var sex = $("#insert_sex").val();
+                                    var age = $("#insert_age").val();
+                                    var bmmc = $("#insert_bmmc").val();
+                                    var qxmc = $("#insert_qxmc").val();
+                                    var zhuceshijian = $("#insert_zhuceshijian").val();
+                                    var denglushijian = $("#insert_denglushijian").val();
+                                    // alert("username=" + username + "  password=" + password);
+                                    $.ajax({
+                                        url: "/insert",   // 请求路径
+                                        type: "Post",            // 请求的方式，不区分大小写
+                                        // async:true,             // 是否异步，true是默认值，false为同步请求
+                                        // cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
+                                        // datatype:"html",        // 返回类型，text文本、html页面、json数据
+                                        data: {
+                                            username: username,
+                                            password: password,
+                                            sex: sex,
+                                            age: age,
+                                            bmmc: bmmc,
+                                            qxmc: qxmc,
+                                            zhuceshijian: zhuceshijian,
+                                            denglushijian: denglushijian
+                                        },
+                                        success: function (response) {
+                                            var json = JSON.parse(response);
+                                            if (json.code === 200) {
+                                                console.log(json)
+                                                alert("新增成功");
+                                                // obj.del();
+                                                // window.location.reload();
+                                                table.reload('test', {})
+                                                // window.location.href = "lianxi.html"
+                                                layer.close(index);
+                                            }
+                                        },
+                                        error: function (response) {
+                                            alert("出错" + response);
+                                            layer.close(index);//关闭弹窗confirm
+                                        }
+                                    });
+                                    // 关闭弹出框
+                                    layer.close(index);
+                                }
+                                , success: function (layero) {
+                                    // $("#insert_username").val("初始化姓名");
+                                    // $("#insert_password").val("初始化密码");
+                                    // console.log(checkStatus.data);
+                                    $("#insert_qxmc").append("<option value=''>请选择权限</option>");
+                                    for (var i = 0; i < qxArray.length; i++) {
+                                        $("#insert_qxmc").append("<option value='" + qxArray[i].id + "'>" + qxArray[i].qxmc + "</option>");
+                                    }
+
+                                    $("#insert_bmmc").append("<option value=''>请选择部门</option>");
+                                    for (var i = 0; i < bmArray.length; i++) {
+                                        $("#insert_bmmc").append("<option value='" + bmArray[i].id + "'>" + bmArray[i].bmmc + "</option>");
+                                    }
+                                    layui.use(['form'], function () {
+                                        var form = layui.form;
+                                        form.render('select');
+                                    });
+                                    layui.use('laydate', function () {
+                                        var laydate = layui.laydate;
+                                        //日期时间选择器
+                                        laydate.render({
+                                            elem: '#insert_zhuceshijian'
+                                            , type: 'datetime'
+                                        });
+                                    });
+                                    blindDateEventById("search_zhuceshijian",false)
+                                    blindDateEventById("insert_denglushijian",false)
+                                    // layui.use('laydate', function () {
+                                    //     var laydate = layui.laydate;
+                                    //     //日期时间选择器
+                                    //     laydate.render({
+                                    //         elem: '#insert_denglushijian'
+                                    //         , type: 'datetime'
+                                    //     });
+                                    // });
+                                }
+                            });
+
+                            break;
+                        //自定义头工具栏右侧图标 - 提示
+                        case 'LAYTABLE_TIPS':
+                            layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                            break;
+                    }
+                    ;
+                });
+
+                //监听行工具事件
+                table.on('tool(test)', function (obj) {
+                    var data = obj.data;
+                    //console.log(obj)
+                    if (obj.event === 'del') {
+                        layer.confirm('真的删除行么', function (index) {
+                            // obj.del();
+                            // layer.close(index);
+                            $.ajax({
+                                url: "/delete",   // 请求路径
+                                type: "Post",            // 请求的方式，不区分大小写
+                                // async:true,             // 是否异步，true是默认值，false为同步请求
+                                // cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
+                                // datatype:"html",        // 返回类型，text文本、html页面、json数据
+                                data: {
+                                    id: data.id
+                                },
+                                success: function (response) {
+                                    var json = JSON.parse(response);
+                                    if (json.code === 200) {
+                                        alert("删除成功");
+                                        // obj.del();
+                                        // window.location.reload();
+                                        table.reload('test', {})
+                                        // window.location.href = "lianxi.html;"
+                                        layer.close(index);
+                                    }
+                                },
+                                error: function (response) {
+                                    alert("出错" + response);
+                                    layer.close(index);//关闭弹窗confirm
+                                }
+                            });
+                        });
+                    } else if (obj.event === 'edit') {
+                        layer.open({
+                            type: 1
+                            , title: '修改信息'         //不显示标题栏
+                            , closeBtn: false
+                            , area: ['400px', '300px']  // 宽和高
+                            , shade: 0.8               // 透明度
+                            , id: 'LAY_layuipro'       //设定一个id，防止重复弹出
+                            , btn: ['修改', '取消']    // 两个按钮显示的文字内容
+                            , btnAlign: 'c'
+                            , moveType: 1             //拖拽模式，0或者1
+                            , content: $('#insert_form').html()// 引入自定义表单
+                            , btn1: function (index, layero) {
+                                var username = $("#insert_username").val();
+                                var password = $("#insert_password").val();
+                                var sex = $("#insert_sex").val();
+                                var age = $("#insert_age").val();
+                                var bmmc = $("#insert_bmmc").val();
+                                var qxmc = $("#insert_qxmc").val();
+                                var zhuceshijian = $("#insert_zhuceshijian").val();
+                                var denglushijian = $("#insert_denglushijian").val();
+                                alert("username=" + username + "  password=" + password);
+                                // 关闭弹出框
+                                $.ajax({
+                                    url: "/update",   // 请求路径
+                                    type: "Post",            // 请求的方式，不区分大小写
+                                    // async:true,             // 是否异步，true是默认值，false为同步请求
+                                    // cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
+                                    // datatype:"html",        // 返回类型，text文本、html页面、json数据
+                                    data: {
+                                        id: data.id,
+                                        username: username,
+                                        password: password,
+                                        sex: sex,
+                                        age: age,
+                                        bmmc: bmmc,
+                                        qxmc: qxmc,
+                                        zhuceshijian: zhuceshijian,
+                                        denglushijian: denglushijian
+                                    },
+                                    success: function (response) {
+                                        var json = JSON.parse(response);
+                                        if (json.code === 200) {
+                                            console.log(json)
+                                            alert("修改成功");
+                                            // obj.del();
+                                            // window.location.reload();
+                                            table.reload('test', {})
+                                            // window.location.href = "lianxi.html;"
+                                            layer.close(index);
+                                        } else {
+                                            alert("修改失败");
+                                        }
+                                    },
+                                    error: function (response) {
+                                        alert("出错" + response);
+                                        layer.close(index);//关闭弹窗confirm
+                                    }
+                                });
+                                layer.close(index);
+                            }
+                            , success: function (layero) {
+                                $("#insert_qxmc").append("<option value=''>请选择权限</option>");
+                                for (var i = 0; i < qxArray.length; i++) {
+                                    if (qxArray[i].id == data.qxid) {
+                                        $("#insert_qxmc").append("<option selected='selected' value='" + qxArray[i].id + "'>" + qxArray[i].qxmc + "</option>");
+                                    } else {
+                                        $("#insert_qxmc").append("<option value='" + qxArray[i].id + "'>" + qxArray[i].qxmc + "</option>");
+                                    }
+                                }
+                                $("#insert_bmmc").append("<option value=''>请选择部门</option>");
+                                for (var i = 0; i < bmArray.length; i++) {
+                                    if (bmArray[i].id == data.bmid) {
+                                        $("#insert_bmmc").append("<option selected='selected' value='" + bmArray[i].id + "'>" + bmArray[i].bmmc + "</option>");
+                                    } else {
+                                        $("#insert_bmmc").append("<option value='" + bmArray[i].id + "'>" + bmArray[i].bmmc + "</option>");
+                                    }
+                                }
+                                layui.use(['form'], function () {
+                                    var form = layui.form;
+                                    form.render('select');
+                                });
+                                layui.use(['form'], function () {
+                                    var form = layui.form;
+                                    form.render('select');
+                                });
+                                var username = $("#insert_username").val(data.username);
+                                var password = $("#insert_password").val(data.password);
+                                var sex = $("#insert_sex").val(data.sex);
+                                var age = $("#insert_age").val(data.age);
+                                var zhuceshijian = $("#insert_zhuceshijian").val(data.zhuceshijian);
+                                var denglushijian = $("#insert_denglushijian").val(data.denglushijian);
+                                layui.use('laydate', function () {
+                                    var laydate = layui.laydate;
+                                    //日期时间选择器
+                                    laydate.render({
+                                        elem: '#insert_zhuceshijian'
+                                        , type: 'datetime'
+                                    });
+                                });
+
+                                blindDateEventById("search_zhuceshijian",false)
+                                // layui.use('laydate', function () {
+                                //     var laydate = layui.laydate;
+                                //     //日期时间选择器
+                                //     laydate.render({
+                                //         elem: '#insert_denglushijian'
+                                //         , type: 'datetime'
+                                //          ,rang:rang
+                                //     });
+                                // });
+                            }
+                        });
+                    }
+                });
+            }
+        </script>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+</body>
+
+</html>

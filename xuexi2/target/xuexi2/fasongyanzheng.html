@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邮箱验证</title>
+    <script src="jquery/jquery-3.5.1.js"></script>
+</head>
+<body>
+<div> 用户名: <input type="text" id="username"></div>
+<div> 邮箱: <input type="text" id="yx"></div>
+<button id="fasong">确认</button>
+</body>
+<script>
+    $(function () {
+        $("#fasong").click(function () {
+            var username = $("#username").val();
+            var yx = $("#yx").val();
+            $.ajax({
+                url: "/youxiangyanzheng",   // 请求路径
+                type: "post",            // 请求的方式，不区分大小写
+                // async:true,             // 是否异步，true是默认值，false为同步请求
+                // cache:false,            // 关闭缓存，目的是为了避免部分浏览器缓存加载出错(IE)
+                // datatype:"html",        // 返回类型，text文本、html页面、json数据
+                data: {
+                    username: username,
+                    yx:yx
+                },
+                success: function (response) {
+                    var json = JSON.parse(response);
+                    console.log(json)
+                    if (json.code === 200) {
+                        alert("发送成功,请注意查收");
+                        // obj.del();
+                        // window.location.reload();
+                        // table.reload('test', {})
+                        // // window.location.href = "lianxi.html;"
+                    }
+                },
+                error: function (response) {
+                    alert("出错" + response);
+                }
+            });
+        });
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="19892e96-41cc-4a34-8fc2-871733decced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/JDBC/JDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/Servlet/ExcelDownLoadServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/Servlet/FileUpLoadServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/MyConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/MyExcelDownLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/MyExcelUpLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/MyFileUpLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/POITest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/POITest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/EXCEL/util/POIUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/Servlet/faServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/Servlet/xiugaixinxi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/webapp/fasongyanzheng.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/webapp/shangchuan.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xuexi2/src/main/webapp/xiugaixinxi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/JDBC/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/JDBC/JDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/Service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/Service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/Servlet/MailFiled.java" beforeDir="false" afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/util/MailFiled.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/Servlet/MyJavaMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/SMS/util/MyJavaMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xuexi2/src/main/java/zuoye/JDBC/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/../xuexi2/src/main/java/zuoye/JDBC/JDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xuexi2/src/main/webapp/lianxi.html" beforeDir="false" afterPath="$PROJECT_DIR$/../xuexi2/src/main/webapp/lianxi.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1m6lIncy4QH58crMzEkFzDyawF1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19892e96-41cc-4a34-8fc2-871733decced" name="Default Changelist" comment="" />
+      <created>1608821843814</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608821843814</updated>
+      <workItem from="1608821845079" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
